@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  /* Himalayan travel palette */
+  --color-forest-950: #0f1f17;
+  --color-forest-900: #16281f;
+  --color-forest-800: #1e3629;
+  --color-forest-700: #2a4736;
+  --color-forest-600: #3a5c46;
+
+  --color-charcoal-900: #17181a;
+  --color-charcoal-800: #232527;
+  --color-charcoal-700: #33363a;
+
+  --color-cream-50: #fefcf8;
+  --color-cream-100: #faf6ee;
+  --color-cream-200: #f3ecdd;
+
+  --color-sandstone-300: #e8dcc6;
+  --color-sandstone-400: #d9c4a1;
+  --color-sandstone-500: #c3a577;
+
+  --color-gold-400: #cba25e;
+  --color-gold-500: #b3854a;
+  --color-gold-600: #93693a;
+
+  --color-himalaya-400: #6c93a8;
+  --color-himalaya-500: #4c7488;
+  --color-himalaya-600: #395b6c;
+
+  --background: var(--color-cream-100);
+  --foreground: var(--color-charcoal-900);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-forest-950: var(--color-forest-950);
+  --color-forest-900: var(--color-forest-900);
+  --color-forest-800: var(--color-forest-800);
+  --color-forest-700: var(--color-forest-700);
+  --color-forest-600: var(--color-forest-600);
+
+  --color-charcoal-900: var(--color-charcoal-900);
+  --color-charcoal-800: var(--color-charcoal-800);
+  --color-charcoal-700: var(--color-charcoal-700);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+
+  --color-sandstone-300: var(--color-sandstone-300);
+  --color-sandstone-400: var(--color-sandstone-400);
+  --color-sandstone-500: var(--color-sandstone-500);
+
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-600: var(--color-gold-600);
+
+  --color-himalaya-400: var(--color-himalaya-400);
+  --color-himalaya-500: var(--color-himalaya-500);
+  --color-himalaya-600: var(--color-himalaya-600);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-up-delay-1: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  --animate-fade-up-delay-2: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  --animate-fade-up-delay-3: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+  --animate-hero-zoom: hero-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-forest-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
