@@ -1,37 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Himgiri Taxi Rishikesh (Cab-Service)
 
-## Getting Started
+A production-quality marketing & lead-generation website for a Rishikesh-based taxi service — airport transfers, railway station pickups, Char Dham Yatra taxis, outstation trips and local sightseeing across Uttarakhand. Built with Next.js (App Router), TypeScript and Tailwind CSS.
 
-First, run the development server:
+> The business details in `src/data/site.ts` (phone, WhatsApp, email, exact address, domain) are placeholders marked `TODO` — replace them with the real client's details before launch.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- Service pages for airport/railway transfers, outstation trips, corporate travel and local sightseeing
+- Dedicated Char Dham Yatra section (`/char-dham`) with route and package info
+- Vehicle fleet showcase (`/fleet`) — compact sedan, family MPV, premium Innova, tempo traveller
+- Destination guides (`/destinations`) and a travel-guide content section
+- Customer reviews section and FAQ accordion
+- Booking flow and WhatsApp click-to-chat integration (`src/lib/whatsapp.ts`)
+- Fare calculation helper (`src/lib/fare.ts`)
+- SEO: generated `sitemap.ts`, `robots.ts`, and JSON-LD structured data (`src/lib/structuredData.ts`)
+- Legal pages: privacy policy, terms & conditions, cancellation policy
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router)
+- [React 19](https://react.dev) + TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Lucide icons
+
+## Project structure
+
+```
+src/
+  app/
+    about/, char-dham/, contact/, destinations/, fleet/, reviews/,
+    routes/, services/, travel-guide/                        # route segments
+    cancellation-policy/, privacy-policy/, terms-and-conditions/
+    sitemap.ts, robots.ts
+  components/
+    booking/, buttons/, char-dham/, destination/, faq/, footer/,
+    hero/, navbar/, reviews/, route/, sections/, service/,
+    vehicle/, whatsapp/, ui/
+  data/
+    site.ts          Business identity & contact details (placeholders — see note above)
+    charDham.ts, destinations.ts, faqs.ts, pricing.ts, routes.ts,
+    services.ts, testimonials.ts, travelGuide.ts, vehicles.ts
+  lib/
+    fare.ts             Fare calculation
+    whatsapp.ts           WhatsApp deep-link builder
+    metadata.ts, structuredData.ts, seo helpers
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-To learn more about Next.js, take a look at the following resources:
+## Before launch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Cab-Service
+Replace every `TODO` in `src/data/site.ts`: production domain, real phone/WhatsApp numbers, email, exact address, Google Maps pin, and social links.
